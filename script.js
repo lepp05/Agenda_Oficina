@@ -3,6 +3,9 @@
 const calendario = document.getElementById('calendario') //pegando a div
 const hoje = new Date() //cria uma data de hoje
 
+const dataSelecionada = document.getElementById('dataSelecionada')
+
+
 //descobrir a segunda-feira da semana atual
 function pegarSegunda(data) {
     const dia = data.getDay() // retorna um numero de 0 a 6 (dias da semana. ex: 0=D 1=S 2=T)
@@ -41,7 +44,22 @@ function criarSemana(titulo, dataInicial){
         const botao = document.createElement('button')
         botao.innerText = formatarData(data)
 
+        //guarda o botao clicado
+        botao.dataset.data = data.toISOString()
+
+        botao.addEventListener('click', function(e){
+            const botoes = document.querySelectorAll('.datas button')
+            botoes.forEach(function(botao){
+                botao.classList.remove('selecionado')
+            })
+            e.target.classList.add('selecionado')
+
+            const dataEscolhida = new Date(e.target.dataset.data)
+            dataSelecionada.innerText = `Data escolhida : ${e.target.innerText}`
+        })
+
         divDatas.appendChild(botao)
+ 
     }
     calendario.appendChild(divDatas)
 }
@@ -54,6 +72,10 @@ const segundaProxima = new Date(segundaAtual)
 segundaProxima.setDate(segundaAtual.getDate() + 7)
 
 criarSemana('Proxima semana', segundaProxima)
+
+
+
+
 
 
 

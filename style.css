@@ -12,6 +12,11 @@ body{
     cursor: pointer;
 }
 
+.selecionado{
+    background-color: #2d6cdf;
+    color: white;
+}
+
 header{
     display: flex;
     justify-content: space-between;
