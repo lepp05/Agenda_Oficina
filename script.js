@@ -57,7 +57,10 @@ function criarSemana(titulo, dataInicial){
             e.target.classList.add('selecionado')
             
             const dataEscolhida = new Date(e.target.dataset.data) //→ new Date() → data (objeto Date de volta) (recupera no clique)
+            
             dataSelecionada.innerText = `Data escolhida : ${e.target.innerText}`
+
+            btnConfirmar.style.display = 'block'
         })
 
         divDatas.appendChild(botao)
@@ -76,7 +79,9 @@ segundaProxima.setDate(segundaAtual.getDate() + 7)
 criarSemana('Proxima semana', segundaProxima)
 
 
-
+btnConfirmar.addEventListener('click', function(){
+    console.log('confirmado')
+})
 
 
 
