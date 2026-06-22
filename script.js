@@ -44,17 +44,19 @@ function criarSemana(titulo, dataInicial){
         const botao = document.createElement('button')
         botao.innerText = formatarData(data)
 
-        //guarda o botao clicado
+        //guarda informação no botão clicado
         botao.dataset.data = data.toISOString()
 
         botao.addEventListener('click', function(e){
+
+            //faz com que somente o botao/data clicado seja selecionado
             const botoes = document.querySelectorAll('.datas button')
             botoes.forEach(function(botao){
                 botao.classList.remove('selecionado')
             })
             e.target.classList.add('selecionado')
-
-            const dataEscolhida = new Date(e.target.dataset.data)
+            
+            const dataEscolhida = new Date(e.target.dataset.data) //→ new Date() → data (objeto Date de volta) (recupera no clique)
             dataSelecionada.innerText = `Data escolhida : ${e.target.innerText}`
         })
 
