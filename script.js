@@ -78,9 +78,55 @@ segundaProxima.setDate(segundaAtual.getDate() + 7)
 
 criarSemana('Proxima semana', segundaProxima)
 
+//criando FORMULÁRIO após confirmação      nj
 
-btnConfirmar.addEventListener('click', function(){
-    console.log('confirmado')
+btnConfirmar.addEventListener('click', function(){ // function ao clicar no botão
+    const formulario = document.createElement('form') // cria a tag <form> 
+    const section = document.querySelector('.agend') // pega a section que ja existe no html
+    section.appendChild(formulario)                   //.. e coloca dentro da section
+//NOME
+    const labelNome = document.createElement('label') // cria um texto para identifcar oq digitar no campo
+    labelNome.innerText = 'Nome : '
+    formulario.appendChild(labelNome) // e adiciona no form
+
+    const inNome = document.createElement('input') // cria o espaço de escrita/input
+    formulario.appendChild(inNome) // e adiona no form
+//TELEFONE
+    const labelNumero = document.createElement('label')
+    labelNumero.innerText = 'Telefone : '
+    formulario.appendChild(labelNumero)
+
+    const inNumero = document.createElement('input')
+    formulario.appendChild(inNumero)
+//PLACA
+    const labelPlaca = document.createElement('label')
+    labelPlaca.innerText = 'Placa : '
+    formulario.appendChild(labelPlaca)
+
+    const inPlaca = document.createElement('input')
+    formulario.appendChild(inPlaca)
+//MODELO
+    const inModelo = document.createElement('input')
+    inModelo.setAttribute('list', 'modelos')
+    formulario.appendChild(inModelo)
+
+    const inDataList = document.createElement('datalist')
+    inDataList.setAttribute('id', 'modelos')
+    formulario.appendChild(inDataList)
+
+    const option1 = document.createElement('option')
+    inDataList.appendChild(option1)
+    option1.value = 'CG 160'
+
+    const option2 = document.createElement('option')
+    inDataList.appendChild(option2)
+    option2.value = 'CG 150'
+
+    const option3 = document.createElement('option')
+    inDataList.appendChild(option3)
+    option3.value = 'XRE 300'
+
+
 })
 
 
