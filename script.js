@@ -151,6 +151,10 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no botÃ
     inDataList.appendChild(option3)
     option3.value = 'XRE 300'
 
+    const option4 = document.createElement('option')
+    inDataList.appendChild(option4)
+    option4.value = 'Falcon 400'
+
 
     // OVERLAY / EMBAÃ‡AMENTO AO ABRIR O MODAL
 

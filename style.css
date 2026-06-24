@@ -1,5 +1,6 @@
 body{
-    background-color: rgb(60, 60, 224);
+    background-color: rgb(28, 95, 218);
+    
 }
 
 main{
@@ -7,6 +8,8 @@ main{
     display: flex;
     justify-content: center;
 }
+
+
 
 .datas {
     display: flex;
@@ -18,6 +21,7 @@ main{
     padding: 20px;
     border-radius: 15pt 0pt;
     cursor: pointer;
+    
 }
 
 .selecionado{
@@ -29,7 +33,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px, 30px;
+    padding: 15px 30px;
 }
 h1{
     color: white;
@@ -43,6 +47,12 @@ h1{
 
     padding: 10px;
     border-radius: 4pt;
+}
+.btsup #ig:hover{
+    transform: translate();
+    transition: 1s;
+    background-color: #5851DB;
+    color: white;
 }
 
 #btnConfirmar{
@@ -86,3 +96,5 @@ h1{
     backdrop-filter: blur(4px);
     z-index: 99;
 }
+
+
