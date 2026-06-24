@@ -78,12 +78,33 @@ segundaProxima.setDate(segundaAtual.getDate() + 7)
 
 criarSemana('Proxima semana', segundaProxima)
 
-//criando FORMULÁRIO após confirmação      nj
 
+
+//criando FORMULÁRIO após confirmação      
+   
 btnConfirmar.addEventListener('click', function(){ // function ao clicar no botão
+
+    if(!document.querySelector('form')){  // se nao tiver form, ele cria..
+
     const formulario = document.createElement('form') // cria a tag <form> 
     const section = document.querySelector('.agend') // pega a section que ja existe no html
-    section.appendChild(formulario)                   //.. e coloca dentro da section
+    section.appendChild(formulario)                   //.. e coloca dentro da section   
+    
+    
+    formulario.classList.add('modal') // adiciona o formulario a um modal/caixa no centro feito no css
+
+//BOTÃO X
+        const fecharFormulario = document.createElement('button')
+        fecharFormulario.innerHTML = 'X'
+        formulario.appendChild(fecharFormulario)
+        fecharFormulario.classList.add('x')
+
+        fecharFormulario.addEventListener('click', function(){ // o que acontece quando eu clico no x 
+            formulario.remove()  // fecha o formulario..
+            overlay.remove()  //.. junto com o overlay
+        })
+
+
 //NOME
     const labelNome = document.createElement('label') // cria um texto para identifcar oq digitar no campo
     labelNome.innerText = 'Nome : '
@@ -106,6 +127,10 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
     const inPlaca = document.createElement('input')
     formulario.appendChild(inPlaca)
 //MODELO
+    const labelModelo = document.createElement('label')
+    labelModelo.innerText = 'Modelo da moto : '
+    formulario.appendChild(labelModelo)
+
     const inModelo = document.createElement('input')
     inModelo.setAttribute('list', 'modelos')
     formulario.appendChild(inModelo)
@@ -127,7 +152,20 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
     option3.value = 'XRE 300'
 
 
+    // OVERLAY / EMBAÇAMENTO AO ABRIR O MODAL
+
+    const overlay = document.createElement('div')
+    overlay.classList.add('overlay')
+    document.body.appendChild(overlay)
+
+    
+     
+    // ..e evita a repetiçaõ do form 
+    }else{
+    return ''
+}
 })
+
 
 
 
