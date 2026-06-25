@@ -134,6 +134,7 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot√
     const inModelo = document.createElement('input')
     inModelo.setAttribute('list', 'modelos')
     formulario.appendChild(inModelo)
+    
 
     const inDataList = document.createElement('datalist')
     inDataList.setAttribute('id', 'modelos')
@@ -155,6 +156,12 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot√
     inDataList.appendChild(option4)
     option4.value = 'Falcon 400'
 
+
+    const envio = document.createElement('button')
+    envio.innerHTML = 'Enviar'
+    formulario.appendChild(envio)
+    envio.classList.add('enviar')
+    
 
     // OVERLAY / EMBA√áAMENTO AO ABRIR O MODAL
 

@@ -44,13 +44,13 @@ h1{
     
 }
 .btsup input {
-
+    background-color: white;
     padding: 10px;
     border-radius: 4pt;
 }
 .btsup #ig:hover{
     transform: translate();
-    transition: 1s;
+    transition: 0.8s;
     background-color: #5851DB;
     color: white;
 }
@@ -65,7 +65,9 @@ h1{
     display: flex;
     justify-content: center;
 }
-
+input{
+    background-color: rgb(181, 190, 187);
+}
 .modal{
     position: fixed;
     top: 50%;
@@ -80,6 +82,21 @@ h1{
     flex-direction: column;
     gap: 5px;
     
+}
+.enviar{
+    background-color: rgb(28, 95, 218);
+    color: rgb(255, 255, 255);
+    margin-top: 35px;
+    padding: 10px;
+    border: none;
+    border-radius: 5pt;
+    font-size: medium;
+    font-weight: 900;
+}
+.enviar:hover{
+    background-color: aqua;
+    color: blue;
+    transition: 0.5s;
 }
 .x{
     position: absolute;
