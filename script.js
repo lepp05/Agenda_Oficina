@@ -93,6 +93,13 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
     
     formulario.classList.add('modal') // adiciona o formulario a um modal/caixa no centro feito no css
 
+    // OVERLAY / EMBAÇAMENTO AO ABRIR O MODAL
+
+    const overlay = document.createElement('div')
+    overlay.classList.add('overlay')
+    document.body.appendChild(overlay)
+
+
 //BOTÃO X
         const fecharFormulario = document.createElement('button')
         fecharFormulario.innerHTML = 'X'
@@ -154,21 +161,40 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
 
     const option4 = document.createElement('option')
     inDataList.appendChild(option4)
-    option4.value = 'Falcon 400'
+    option4.value = 'FALCON 400'
 
+// PREÇOS
+        const precos = {
+            'CG 150' : 300,
+            'CG 160' : 300, 
+            'XRE 300' : 350,
+            'FALCON 400' : 400,
+        }
+        //para que o exibirPreco nao fique travado
+        const exibirPreco = document.createElement('p') // crio o <p> fora do event..
+            formulario.appendChild(exibirPreco)
 
+        inModelo.addEventListener('change', function(){
+            const modelo = inModelo.value
+            const precoE = precos[modelo]
+           if(precoE !== undefined){
+            exibirPreco.innerHTML =  //.. e no event só atualizo o html
+            `A revisão da ${modelo} custa R$ ${precoE.toFixed(2)}` 
+            } else{
+                exibirPreco.innerHTML = 'Modelo não encontrado na tabela de preços, consultar antes pelo WPP'
+            }
+        })
+
+       
+
+//botão enviar formulário
     const envio = document.createElement('button')
     envio.innerHTML = 'Enviar'
     formulario.appendChild(envio)
     envio.classList.add('enviar')
     
 
-    // OVERLAY / EMBAÇAMENTO AO ABRIR O MODAL
-
-    const overlay = document.createElement('div')
-    overlay.classList.add('overlay')
-    document.body.appendChild(overlay)
-
+    
     
      
     // ..e evita a repetiçaõ do form 
