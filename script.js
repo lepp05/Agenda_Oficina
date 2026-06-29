@@ -192,6 +192,13 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
     envio.innerHTML = 'Enviar'
     formulario.appendChild(envio)
     envio.classList.add('enviar')
+
+//função de enviar as informações
+    envio.addEventListener('click', function(){
+        const nome_ = inNome.value
+
+        console.log(`${nome_}`)
+    })
     
 
     
