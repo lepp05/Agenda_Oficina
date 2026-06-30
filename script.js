@@ -201,7 +201,11 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
         const modelo_ = inModelo.value
         const data_ = dataSelecionada.innerText
         
-        console.log(`${data_}, ${modelo_}, ${placa_}, ${telefone_}, ${nome_}`)
+        // LINK WHATSAPP
+        const mensagem = `Olá, gostaria de agendar uma revisão. \n- ${data_} \n- ${nome_} \n- ${telefone_} \n- ${placa_} \n- ${modelo_}`
+        const url = `https://wa.me/557193369806?text=${encodeURIComponent(mensagem)}`
+        window.open(url)
+
 
         e.preventDefault()
     })
