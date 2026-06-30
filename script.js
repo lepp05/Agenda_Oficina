@@ -102,6 +102,7 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
 
 //BOTÃO X
         const fecharFormulario = document.createElement('button')
+        fecharFormulario.setAttribute('type', 'button')
         fecharFormulario.innerHTML = 'X'
         formulario.appendChild(fecharFormulario)
         fecharFormulario.classList.add('x')
@@ -118,6 +119,7 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
     formulario.appendChild(labelNome) // e adiciona no form
 
     const inNome = document.createElement('input') // cria o espaço de escrita/input
+    inNome.setAttribute('required', '') // adiciona o atributo required nos inputs
     formulario.appendChild(inNome) // e adiona no form
 //TELEFONE
     const labelNumero = document.createElement('label')
@@ -125,6 +127,7 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
     formulario.appendChild(labelNumero)
 
     const inNumero = document.createElement('input')
+    inNumero.setAttribute('required','')
     formulario.appendChild(inNumero)
 //PLACA
     const labelPlaca = document.createElement('label')
@@ -132,6 +135,7 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
     formulario.appendChild(labelPlaca)
 
     const inPlaca = document.createElement('input')
+    inPlaca.setAttribute('required','')
     formulario.appendChild(inPlaca)
 //MODELO
     const labelModelo = document.createElement('label')
@@ -139,6 +143,7 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
     formulario.appendChild(labelModelo)
 
     const inModelo = document.createElement('input')
+    inModelo.setAttribute('required','')
     inModelo.setAttribute('list', 'modelos')
     formulario.appendChild(inModelo)
     
@@ -179,7 +184,7 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
             const precoE = precos[modelo]
            if(precoE !== undefined){
             exibirPreco.innerHTML =  //.. e no event só atualizo o html
-            `A revisão da ${modelo} custa R$ ${precoE.toFixed(2)}` 
+            `<strong>A revisão da ${modelo} custa R$ ${precoE.toFixed(2)}</strong> <br> **Somente mão de obra**` 
             } else{
                 exibirPreco.innerHTML = 'Modelo não encontrado na tabela de preços, consultar antes pelo WPP'
             }
@@ -189,12 +194,13 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
 
 //botão enviar formulário
     const envio = document.createElement('button')
+    envio.setAttribute('type', 'submit')
     envio.innerHTML = 'Enviar'
     formulario.appendChild(envio)
     envio.classList.add('enviar')
 
 //função de enviar as informações
-    envio.addEventListener('click', function(e){
+        formulario.addEventListener('submit', function(e){  //troquei click por submit para funcionar o required
         const nome_ = inNome.value
         const telefone_ = inNumero.value
         const placa_ = inPlaca.value
@@ -202,12 +208,12 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
         const data_ = dataSelecionada.innerText
         
         // LINK WHATSAPP
-        const mensagem = `Olá, gostaria de agendar uma revisão. \n- ${data_} \n- ${nome_} \n- ${telefone_} \n- ${placa_} \n- ${modelo_}`
-        const url = `https://wa.me/557193369806?text=${encodeURIComponent(mensagem)}`
+        const mensagem = `Olá, gostaria de agendar uma revisão. \n- ${data_.toUpperCase()} \n- ${nome_.toUpperCase()} \n- ${telefone_} \n- ${placa_.toUpperCase()} \n- ${modelo_}`
+        const url = `https://wa.me/557193369806?text=${encodeURIComponent(mensagem)}` //O encodeURIComponent converte a mensagem para um formato válido de URL
         window.open(url)
 
 
-        e.preventDefault()
+        e.preventDefault() // evita que o envio do formulário recarregue a página
     })
     
 
