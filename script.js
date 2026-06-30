@@ -194,10 +194,16 @@ btnConfirmar.addEventListener('click', function(){ // function ao clicar no bot�
     envio.classList.add('enviar')
 
 //função de enviar as informações
-    envio.addEventListener('click', function(){
+    envio.addEventListener('click', function(e){
         const nome_ = inNome.value
+        const telefone_ = inNumero.value
+        const placa_ = inPlaca.value
+        const modelo_ = inModelo.value
+        const data_ = dataSelecionada.innerText
+        
+        console.log(`${data_}, ${modelo_}, ${placa_}, ${telefone_}, ${nome_}`)
 
-        console.log(`${nome_}`)
+        e.preventDefault()
     })
     
 
