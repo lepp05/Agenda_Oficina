@@ -9,8 +9,6 @@ main{
     justify-content: center;
 }
 
-
-
 .datas {
     display: flex;
     gap: 10px;
@@ -23,7 +21,10 @@ main{
     cursor: pointer;
     
 }
-
+.datas button:hover{
+    background-color: #a7b9da;
+    transition: 0.5s;
+}
 .selecionado{
     background-color: #2d6cdf;
     color: white;
@@ -49,10 +50,14 @@ h1{
     border-radius: 4pt;
 }
 .btsup #ig:hover{
-    transform: translate();
     transition: 0.8s;
     background-color: #5851DB;
     color: white;
+}
+.btsup #wpp:hover{
+    transition: 0.8s;
+    background-color: rgb(30, 235, 57);
+    color: black;
 }
 
 #btnConfirmar{
@@ -60,6 +65,10 @@ h1{
     padding: 10px;
     border-radius: 6pt;
     
+}
+#btnConfirmar:hover{
+    background-color: aqua;
+    transition: 0.5s;
 }
 #btnConf{
     display: flex;
